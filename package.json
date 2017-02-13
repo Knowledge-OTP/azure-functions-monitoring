@@ -1,11 +1,11 @@
 {
   "name": "azureFuncMonitorManager",
   "version": "1.0.0",
-  "description": "",
+  "description": "Azure Functions monitoring",
   "main": "azureFuncMonitorManager.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node main.js"
   },
-  "author": "",
+  "author": "Assaf Sheep",
   "license": "ISC"
 }
