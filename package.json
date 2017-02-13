@@ -7,5 +7,11 @@
     "test": "node main.js"
   },
   "author": "Assaf Sheep",
-  "license": "ISC"
+  "license": "ISC",
+  "repository" :
+  { 
+  	"type" : "git",
+   	"url"  : "https://github.com/Knowledge-OTP/azure-functions-monitoring.git"
+  }
+
 }
