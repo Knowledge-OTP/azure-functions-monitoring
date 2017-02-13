@@ -1,0 +1,8 @@
+{
+	"id": "9f4ea53c5136457d883d685e57164f59",
+    "functionTimeout": "00:05:00",
+    "tracing": {
+      "consoleLevel": "verbose",
+      "fileLoggingMode": "always"
+    }
+}

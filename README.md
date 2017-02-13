@@ -1,0 +1,1 @@
+Use this repo to monitor azure function invocations

@@ -1,0 +1,11 @@
+{
+    "disabled": false,
+    "bindings": [
+        {
+		    "schedule": "0 */1 * * * *",
+		    "name": "funcTmp2Timer",
+		    "type": "timerTrigger",
+		    "direction": "in"
+		}
+    ]
+}
