@@ -83,3 +83,5 @@ var monitorManager = function(redisInfo){
     }
     return _monitorManager; 
 };
+
+module.exports = monitorManager;
