@@ -1,8 +1,11 @@
 var _monitorManager;
 
-var Monitoring = function () {
+var Monitoring = function (redisInfo) {
     this.monitorData={};
+    this.redisInfo=redisInfo;
 };
+
+
 
 Monitoring.prototype.log = function (functionName,invokedTime,isSuceess){
 

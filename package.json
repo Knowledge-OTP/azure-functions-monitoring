@@ -8,10 +8,11 @@
   },
   "author": "Assaf Sheep",
   "license": "ISC",
-  "repository" :
-  { 
-  	"type" : "git",
-   	"url"  : "https://github.com/Knowledge-OTP/azure-functions-monitoring.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Knowledge-OTP/azure-functions-monitoring.git"
+  },
+  "dependencies": {
+    "redis": "^2.6.5"
   }
-
 }
