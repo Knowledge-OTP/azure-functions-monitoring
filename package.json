@@ -1,6 +1,6 @@
 {
   "name": "azure-functions-monitoring",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Azure Functions monitoring",
   "main": "azureFuncMonitorManager.js",
   "scripts": {

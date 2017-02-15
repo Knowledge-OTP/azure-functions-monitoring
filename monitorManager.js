@@ -38,7 +38,6 @@ Monitoring.prototype._setMonitoringData = function(monitoringDataObj){
             else{
                 var redisMonitorData = JSON.parse(reply);
                 extend(monitorData,redisMonitorData);
-                console.log('monitorData=' + monitorData);
                 monitorData[monitoringDataObj.function_name] = monitoringDataObj;
                 client.set(FUNCTIONS_ARRAY_KEY, JSON.stringify(monitorData),function(err, reply) {
                     //
@@ -51,8 +50,7 @@ Monitoring.prototype._setMonitoringData = function(monitoringDataObj){
         this.monitorData[monitoringDataObj.function_name] = monitoringDataObj;
     }
     // console.log('end monitorData=' + monitorData);
-    console.log('this.monitorData=' + this.monitorData);
-
+    
 }
 
 Monitoring.prototype.clear = function (){
