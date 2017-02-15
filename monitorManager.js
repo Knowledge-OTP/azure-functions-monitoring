@@ -5,6 +5,7 @@ var Monitoring = function (redisInfo) {
     this.redisInfo=redisInfo;
     this.monitorData={};
     if (redisInfo){
+        // console.log('redis');
         var redis = require("redis");
         var redisName = redisInfo.host + '.redis.cache.windows.net';
         var redisKey = redisInfo.key;
@@ -16,6 +17,7 @@ var Monitoring = function (redisInfo) {
             else{
                 if (reply){
                     this.monitorData=JSON.parse(reply);
+                    // console.log('reply,monitorData'+ JSON.stringify(this.monitorData));
                 }
                  
             }
@@ -62,19 +64,27 @@ Monitoring.prototype.get = function (callback){
         this.redisClient.get(FUNCTIONS_ARRAY_KEY,  function(err, reply) {
             if (err){
                 // 
+                callback({ err: true, data: err});
             }
             else{
                 this.monitorData = JSON.parse(reply);
+                for(var functionName in this.monitorData) {
+                    var minutesFromLastInvoke = (nowTime - this.monitorData[functionName].last_invoke)/1000/60;
+                    this.monitorData[functionName].monitorTime= nowTime;
+                    this.monitorData[functionName].minutesFromLastInvoke=minutesFromLastInvoke;
+                }
+                callback({ err: null, data: this.monitorData});
             }
         });
     }
-
-    for(var functionName in this.monitorData) {
-        var minutesFromLastInvoke = (nowTime - this.monitorData[functionName].last_invoke)/1000/60;
-        this.monitorData[functionName].monitorTime= nowTime;
-        this.monitorData[functionName].minutesFromLastInvoke=minutesFromLastInvoke;
+    else{
+        for(var functionName in this.monitorData) {
+            var minutesFromLastInvoke = (nowTime - this.monitorData[functionName].last_invoke)/1000/60;
+            this.monitorData[functionName].monitorTime= nowTime;
+            this.monitorData[functionName].minutesFromLastInvoke=minutesFromLastInvoke;
+        }
+        callback({ err: null, data:this.monitorData});
     }
-    return (this.monitorData);
 }
 
 var monitorManager = function(redisInfo){
