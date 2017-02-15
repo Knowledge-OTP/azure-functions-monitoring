@@ -1,6 +1,6 @@
 {
   "name": "azure-functions-monitoring",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Azure Functions monitoring",
   "main": "azureFuncMonitorManager.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "url": "https://github.com/Knowledge-OTP/azure-functions-monitoring.git"
   },
   "dependencies": {
+    "extend": "^3.0.0",
     "redis": "^2.6.5"
   }
 }
