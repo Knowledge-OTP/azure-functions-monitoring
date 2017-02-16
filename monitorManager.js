@@ -37,6 +37,15 @@ Monitoring.prototype._setMonitoringData = function(monitoringDataObj){
             }
             else{
                 var redisMonitorData = JSON.parse(reply);
+                for (var funcName in redisMonitorData) {
+                    if (redisMonitorData.hasOwnProperty(funcName)) {
+                        if (monitorData[funcName]){
+                            if (monitorData[funcName].last_invoke > redisMonitorData[funcName].last_invoke){
+                                redisMonitorData[funcName] = monitorData[funcName];
+                            }
+                        }
+                    }
+                }
                 extend(monitorData,redisMonitorData);
                 monitorData[monitoringDataObj.function_name] = monitoringDataObj;
                 client.set(FUNCTIONS_ARRAY_KEY, JSON.stringify(monitorData),function(err, reply) {
